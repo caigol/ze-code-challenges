@@ -9,8 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import mil.nga.sf.geojson.MultiPolygon;
-import mil.nga.sf.geojson.Point;
+import com.vividsolutions.jts.geom.MultiPolygon;
+import com.vividsolutions.jts.geom.Point;
+
 
 @Entity
 @Table(name="partner")
@@ -31,10 +32,10 @@ public class Partner implements Serializable{
 	@Column(nullable = false)
     private String document;
 	
-	@Column(nullable = false)
+	@Column(columnDefinition="multipolygon", nullable = false)
     private MultiPolygon converageArea;
 	
-	@Column(nullable = false)
+	@Column(columnDefinition="point", nullable = false)
     private Point adress;
     
     
