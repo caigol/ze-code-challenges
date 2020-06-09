@@ -9,8 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.locationtech.jts.awt.PointShapeFactory.Point;
-import org.locationtech.jts.geom.MultiPolygon;
+import com.vividsolutions.jts.geom.MultiPolygon;
+import com.vividsolutions.jts.geom.Point;
 
 
 @Entity
