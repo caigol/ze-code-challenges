@@ -1,13 +1,12 @@
-package br.com.caique.zecodechallenges;
+package br.com.caique;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ZeCodeChallengesApplication {
-
+public class Startup {
 	public static void main(String[] args) {
-		SpringApplication.run(ZeCodeChallengesApplication.class, args);
+		SpringApplication.run(Startup.class, args);
 	}
 
 }
