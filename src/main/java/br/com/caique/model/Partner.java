@@ -1,16 +1,10 @@
 package br.com.caique.model;
 
-import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import com.vividsolutions.jts.geom.MultiPolygon;
 import com.vividsolutions.jts.geom.Point;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 
 @Entity
@@ -33,10 +27,10 @@ public class Partner implements Serializable{
     private String document;
 	
 	@Column(columnDefinition="multipolygon", nullable = false)
-    private MultiPolygon converageArea;
+    private MultiPolygon coverageArea;
 	
 	@Column(columnDefinition="point", nullable = false)
-    private Point adress;
+	private Point address;
     
     
     public Partner() {
@@ -75,28 +69,28 @@ public class Partner implements Serializable{
 		this.document = document;
 	}
 
-	public MultiPolygon getConverageArea() {
-		return converageArea;
+	public MultiPolygon getCoverageArea() {
+		return coverageArea;
 	}
 
-	public void setConverageArea(MultiPolygon converageArea) {
-		this.converageArea = converageArea;
+	public void setCoverageArea(MultiPolygon coverageArea) {
+		this.coverageArea = coverageArea;
 	}
 
-	public Point getAdress() {
-		return adress;
+	public Point getAddress() {
+		return address;
 	}
 
-	public void setAdress(Point adress) {
-		this.adress = adress;
+	public void setAddress(Point address) {
+		this.address = address;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((adress == null) ? 0 : adress.hashCode());
-		result = prime * result + ((converageArea == null) ? 0 : converageArea.hashCode());
+		result = prime * result + ((address == null) ? 0 : address.hashCode());
+		result = prime * result + ((coverageArea == null) ? 0 : coverageArea.hashCode());
 		result = prime * result + ((document == null) ? 0 : document.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((ownerName == null) ? 0 : ownerName.hashCode());
@@ -113,15 +107,15 @@ public class Partner implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Partner other = (Partner) obj;
-		if (adress == null) {
-			if (other.adress != null)
+		if (address == null) {
+			if (other.address != null)
 				return false;
-		} else if (!adress.equals(other.adress))
+		} else if (!address.equals(other.address))
 			return false;
-		if (converageArea == null) {
-			if (other.converageArea != null)
+		if (coverageArea == null) {
+			if (other.coverageArea != null)
 				return false;
-		} else if (!converageArea.equals(other.converageArea))
+		} else if (!coverageArea.equals(other.coverageArea))
 			return false;
 		if (document == null) {
 			if (other.document != null)
