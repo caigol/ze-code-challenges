@@ -23,7 +23,7 @@ public class Partner implements Serializable{
 	@Column(name="owner_name", nullable = false)
     private String ownerName;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
     private String document;
 	
 	@Column(columnDefinition="multipolygon", nullable = false)
