@@ -15,6 +15,7 @@ import br.com.caique.repository.PartnerRepository;
 @Service
 public class PartnerServices {
 	
+	
 	@Autowired
 	PartnerRepository repository;
 	
@@ -43,7 +44,10 @@ public class PartnerServices {
 				});
 			
 			partnersCoverage.stream().mapToDouble(partner -> partner.getCoverageArea().distance(adress)).sorted().findFirst();
-			return partnersCoverage.get(0);
+			if(partnersCoverage.size() > 0)
+				return partnersCoverage.get(0);
+			else
+				throw new ResourceNotFoundException("Outside the coverage area");
 		
 	}
 }
