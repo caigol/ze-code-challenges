@@ -4,13 +4,11 @@ package br.com.caique.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vividsolutions.jts.geom.Coordinate;
@@ -32,12 +30,12 @@ public class PartnerController {
 		return services.findById(id);
 	}
 	
-	@GetMapping("/lat/{lat}/log/{log}")
-	public Partner search(@PathVariable double lat, @PathVariable double log) {
+	@GetMapping("/lng/{lng}/lat/{lat}")
+	public Partner search(@PathVariable double lng, @PathVariable double lat) {
 		GeometryFactory geometryFactory = new GeometryFactory();
 		Coordinate c = new Coordinate();
-		c.x = lat;
-		c.y = log;
+		c.x = lng;
+		c.y = lat;
 		Point myPoint = geometryFactory.createPoint(c);
 		return services.search(myPoint);
 	}
