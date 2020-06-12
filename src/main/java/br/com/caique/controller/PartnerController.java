@@ -42,8 +42,7 @@ public class PartnerController {
 		return services.search(myPoint);
 	}
 	
-	@RequestMapping(method=RequestMethod.GET,
-			produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping
 	public List<Partner> findAll() {
 		return services.findAll();
 	}

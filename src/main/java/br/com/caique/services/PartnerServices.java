@@ -25,7 +25,8 @@ public class PartnerServices {
 	
 	public Partner findById(Long id) {
 		
-		return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("No records found this ID"));
+		return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("No records found this ID: " + id));
+
 	}
 	
 	public List<Partner> findAll(){

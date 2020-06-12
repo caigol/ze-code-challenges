@@ -9,25 +9,37 @@ public class ExceptionResponse implements Serializable{
 	
 	private Date timestamp;
 	private String message;
-	private String details;
+	private String status;
 
-	public ExceptionResponse(Date timestamp, String message, String details) {
+	public ExceptionResponse(Date timestamp, String message, String status) {
 		super();
-		this.timestamp = timestamp;
-		this.message = message;
-		this.details = details;
+		this.setTimestamp(timestamp);
+		this.setMessage(message);
+		this.setStatus(status);
 	}
-
+	
 	public Date getTimestamp() {
 		return timestamp;
+	}
+	
+	private void setTimestamp(Date timestamp) {
+		this.timestamp = timestamp;
 	}
 
 	public String getMessage() {
 		return message;
 	}
 
-	public String getDetails() {
-		return details;
+	private void setMessage(String message) {
+		this.message = message;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+
+	private void setStatus(String status) {
+		this.status = status;
 	}
 	
 }
