@@ -30,7 +30,7 @@ public class PartnerController {
 		return services.findById(id);
 	}
 	
-	@GetMapping("/lng/{lng}/lat/{lat}")
+	@GetMapping("/lng/{lng}/lat/{lat}/")
 	public Partner search(@PathVariable double lng, @PathVariable double lat) {
 		GeometryFactory geometryFactory = new GeometryFactory();
 		Coordinate c = new Coordinate();
